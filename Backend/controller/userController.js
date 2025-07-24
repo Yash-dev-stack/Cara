@@ -8,7 +8,7 @@ dotenv.config(); // Load environment variables
 
 // Function to create a token
 const createToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1h" }); // Set token expiration
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "7d" }); // Set token expiration
 };
 
 // Controller for user registration
