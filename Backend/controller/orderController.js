@@ -50,4 +50,18 @@ const createOrder = async (request, response) => {
   }
 };
 
+// controller for fetching user order
+const fetchOrders = async () => {
+  try {
+    
+  } catch (error) {
+    console.log("error while fetch user orders in backend", error);
+    response.status(500).json({
+      success: false,
+      message: "Failed to load orders.",
+      error: error.message,
+    });
+  }
+};
+
 export { createOrder };

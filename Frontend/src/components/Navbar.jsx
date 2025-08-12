@@ -1,18 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { assets } from "../assets/assets.js";
 import { ShopContext } from "../context/ShopContext.jsx";
 import { toast } from "react-toastify";
-import Profile from "../pages/Profile.jsx";
 
 const Navbar = () => {
-  const { setShowSearch, getCartCount, naviagte } = useContext(ShopContext);
+  const { setShowSearch, getCartCount, naviagte, setTextShuffle, textShuffle } =
+    useContext(ShopContext);
 
   const logOut = async () => {
     try {
       if (!localStorage.getItem("token")) return;
       await localStorage.removeItem("token");
       toast.success("logged out successfully");
+      setTextShuffle(true);
     } catch (error) {
       console.log(error);
       toast.error(error.message);
@@ -75,18 +76,7 @@ const Navbar = () => {
               About
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `pl-[20px] pr-[20px] text-[16px] ${
-                  isActive ? "text-tertiary" : "text-secondary"
-                } font-semibold hover:text-tertiary`
-              }
-            >
-              Contact
-            </NavLink>
-          </li>
+          <li></li>
         </ul>
       </div>
 
@@ -104,19 +94,17 @@ const Navbar = () => {
           </Link>
           <div className="hover:block dropdown-menu group-hover:block absolute right-0 pt-4 hidden">
             <div className="flex flex-col w-36 px-3 py-5 gap-2 rounded bg-primary shadow-hoverShadow">
-              <p className="text-gray-700 cursor-pointer hover:textblack">
+              <Link
+                to="/order-details"
+                className="text-gray-700 cursor-pointer hover:textblack"
+              >
                 My Orders
-              </p>
-              <Link to="/profile">
-                <p className="text-gray-700 cursor-pointer hover:textblack">
-                  My Profile
-                </p>
               </Link>
               <p
                 onClick={logOut}
                 className="text-gray-700 cursor-pointer hover:textblack"
               >
-                Log Out
+                {textShuffle ? "Login" : "Log out"}
               </p>
             </div>
           </div>

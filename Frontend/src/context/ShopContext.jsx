@@ -13,6 +13,11 @@ const ShopContextProvider = (props) => {
   const [showSearch, setShowSearch] = useState(false);
   const [cartItem, setCartItem] = useState({});
   const [token, setToken] = useState("");
+
+
+  const [user, setUser] = useState(null);
+  const [textShuffle, setTextShuffle] = useState(false);
+
   const navigate = useNavigate();
 
   const headingStyle = "text-[46px] font-bold leading-[54px] text-quaternary";
@@ -149,6 +154,8 @@ const ShopContextProvider = (props) => {
     setShowSearch,
     cartItem,
     updateCart,
+    textShuffle,
+    setTextShuffle,
     addToCart,
     setUser,
     user,

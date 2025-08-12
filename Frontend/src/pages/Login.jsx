@@ -4,8 +4,15 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 const Login = () => {
-  const { token, setToken, setUser, navigate, backendUrl, cartItem } =
-    useContext(ShopContext);
+  const {
+    token,
+    setToken,
+    setUser,
+    navigate,
+    backendUrl,
+    cartItem,
+    setTextShuffle,
+  } = useContext(ShopContext);
   const [currentState, setCurrentState] = useState("Sign-up");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -34,6 +41,7 @@ const Login = () => {
         setUser(response.data.user);
         localStorage.setItem("token", response.data.token);
         toast.success(response.data.msg);
+        setTextShuffle(false);
         navigate("/");
       } else {
         toast.error(response.data.msg);

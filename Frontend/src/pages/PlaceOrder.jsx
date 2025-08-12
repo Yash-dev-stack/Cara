@@ -110,12 +110,14 @@ const PlaceOrder = () => {
             type="text"
             placeholder="First Name"
             onChange={(e) => setFirstName(e.target.value)}
+            value={firstName}
             className="border border-gray-300 py-1.5 px-3.5 w-full rounded "
           />
           <input
             type="text"
             onChange={(e) => setLastName(e.target.value)}
             placeholder="Last Name"
+            value={lastName}
             className="border border-gray-300 py-1.5 px-3.5 w-full rounded "
           />
         </div>
@@ -123,12 +125,14 @@ const PlaceOrder = () => {
         <input
           type="email"
           placeholder="Email Address"
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="border border-gray-300 py-1.5 px-3.5 w-full rounded "
         />
         <input
           type="text"
           placeholder="Street"
+          value={street}
           onChange={(e) => setStreet(e.target.value)}
           className="border border-gray-300 py-1.5 px-3.5 w-full rounded "
         />
@@ -138,11 +142,13 @@ const PlaceOrder = () => {
             type="text"
             onChange={(e) => setCity(e.target.value)}
             placeholder="City "
+            value={city}
             className="border border-gray-300 py-1.5 px-3.5 w-full rounded "
           />
           <input
             type="text"
             placeholder="State"
+            value={state}
             onChange={(e) => setState(e.target.value)}
             className="border border-gray-300 py-1.5 px-3.5 w-full rounded "
           />
@@ -153,17 +159,20 @@ const PlaceOrder = () => {
             type="number"
             onChange={(e) => setZipCode(e.target.value)}
             placeholder="Zip code"
+            value={zipCode}
             className="border border-gray-300 py-1.5 px-3.5 w-full rounded "
           />
           <input
             type="text"
             onChange={(e) => setCountry(e.target.value)}
             placeholder="Country"
+            value={country}
             className="border border-gray-300 py-1.5 px-3.5 w-full rounded "
           />
         </div>
         <input
           type="number"
+          value={phone}
           placeholder="Phone"
           onChange={(e) => setPhone(e.target.value)}
           className="border border-gray-300 py-1.5 px-3.5 w-full rounded "
