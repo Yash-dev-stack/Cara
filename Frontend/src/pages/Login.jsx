@@ -38,7 +38,7 @@ const Login = () => {
       const response = await axios.post(url, data);
       if (response.data.success) {
         setToken(response.data.token);
-        setUser(response.data.user);
+        localStorage.setItem("caraUser", JSON.stringify(response.data.user));
         localStorage.setItem("token", response.data.token);
         toast.success(response.data.msg);
         setTextShuffle(false);

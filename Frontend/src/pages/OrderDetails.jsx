@@ -1,7 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
+import { ShopContext } from "../context/ShopContext";
 
 const OrderDetails = () => {
   const [order, setOrder] = useState([]);
+  const { backendUrl, userId, setUserId } = useContext(ShopContext);
+
+  useEffect(() => {
+    if (userId) {
+      fetchOrderData(userId);
+    } else {
+      console.log("User ID not found");
+    }
+  }, [userId]);
+
+  const fetchOrderData = async (id) => {
+    try {
+      const response = await axios.get(
+        `${backendUrl}/api/order/order-details/${id}`
+      );
+      if (response.data.success) {
+        setOrder(response.data.orders);
+      }
+    } catch (error) {
+      console.log("Error in order Data in frontend", error);
+    }
+  };
 
   return (
     <div className="mt-9 flex flex-col items-center justify-center text-center w-full">
@@ -15,10 +39,11 @@ const OrderDetails = () => {
           <p className="font-medium">Order Status</p>
           <p className="font-medium">Order date</p>
         </div>
+
         {/* order information */}
         <div>
           {order.map((item) => (
-            <div></div>
+            <div key={item._id}>{/* display order details here */}</div>
           ))}
         </div>
       </div>

@@ -51,9 +51,16 @@ const createOrder = async (request, response) => {
 };
 
 // controller for fetching user order
-const fetchOrders = async () => {
+const fetchOrders = async (request, response) => {
   try {
-    
+    const userId = request.params.id;
+    console.log(userId);
+    const orderData = await orderModel.find({ userId });
+    console.log(orderData);
+    return response.status(200).json({
+      success: true,
+      orders: orderData,
+    });
   } catch (error) {
     console.log("error while fetch user orders in backend", error);
     response.status(500).json({
@@ -64,4 +71,4 @@ const fetchOrders = async () => {
   }
 };
 
-export { createOrder };
+export { createOrder, fetchOrders };

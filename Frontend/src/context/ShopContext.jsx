@@ -19,6 +19,27 @@ const ShopContextProvider = (props) => {
   const [textShuffle, setTextShuffle] = useState(false);
 
   const navigate = useNavigate();
+  const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("caraUser");
+    if (storedUser) {
+      try {
+        const parsedUser = JSON.parse(storedUser);
+        if (parsedUser && parsedUser._id) {
+          setUserId(parsedUser._id);
+        }
+      } catch (err) {
+        console.error("Failed to parse user from localStorage", err);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    const userData = localStorage.getItem("caraUser");
+
+    setUser(userData ? userData : null);
+  }, []);
 
   const headingStyle = "text-[46px] font-bold leading-[54px] text-quaternary";
   const paragraphStyle = "text-[16px] text-para mt-[15px] mb-[20px]";
@@ -148,6 +169,8 @@ const ShopContextProvider = (props) => {
     headingStyle,
     paragraphStyle,
     products,
+    userId,
+    setUserId,
     search,
     setSearch,
     showSearch,

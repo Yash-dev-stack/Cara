@@ -5,8 +5,15 @@ import { ShopContext } from "../context/ShopContext.jsx";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
-  const { setShowSearch, getCartCount, naviagte, setTextShuffle, textShuffle } =
-    useContext(ShopContext);
+  const {
+    setShowSearch,
+    getCartCount,
+    naviagte,
+    setTextShuffle,
+    textShuffle,
+    userId,
+    setUserId,
+  } = useContext(ShopContext);
 
   const logOut = async () => {
     try {
@@ -95,7 +102,7 @@ const Navbar = () => {
           <div className="hover:block dropdown-menu group-hover:block absolute right-0 pt-4 hidden">
             <div className="flex flex-col w-36 px-3 py-5 gap-2 rounded bg-primary shadow-hoverShadow">
               <Link
-                to="/order-details"
+                to={`/order-details/${userId}`}
                 className="text-gray-700 cursor-pointer hover:textblack"
               >
                 My Orders
