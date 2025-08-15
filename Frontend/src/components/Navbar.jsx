@@ -17,8 +17,8 @@ const Navbar = () => {
 
   const logOut = async () => {
     try {
-      if (!localStorage.getItem("token")) return;
-      await localStorage.removeItem("token");
+      if (!localStorage.getItem("caraToken")) return;
+      await localStorage.removeItem("caraToken");
       toast.success("logged out successfully");
       setTextShuffle(true);
     } catch (error) {

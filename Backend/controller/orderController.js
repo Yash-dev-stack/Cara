@@ -54,9 +54,9 @@ const createOrder = async (request, response) => {
 const fetchOrders = async (request, response) => {
   try {
     const userId = request.params.id;
-    console.log(userId);
+    // console.log(userId);
     const orderData = await orderModel.find({ userId });
-    console.log(orderData);
+    // console.log(orderData);
     return response.status(200).json({
       success: true,
       orders: orderData,

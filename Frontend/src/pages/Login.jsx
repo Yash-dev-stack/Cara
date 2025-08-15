@@ -39,7 +39,7 @@ const Login = () => {
       if (response.data.success) {
         setToken(response.data.token);
         localStorage.setItem("caraUser", JSON.stringify(response.data.user));
-        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("caraToken", response.data.token);
         toast.success(response.data.msg);
         setTextShuffle(false);
         navigate("/");
