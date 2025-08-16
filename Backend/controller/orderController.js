@@ -71,4 +71,32 @@ const fetchOrders = async (request, response) => {
   }
 };
 
+// controller for delete order
+export const deleteOrder = async (req, res) => {
+  try {
+    const orderId = req.params.id;
+
+    const deletedOrder = await orderModel.findByIdAndDelete(orderId);
+
+    if (!deletedOrder) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Order not found" });
+    }
+
+    res
+      .status(200)
+      .json({ success: true, message: "Order deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting order:", error);
+    res
+      .status(500)
+      .json({
+        success: false,
+        message: "Failed to delete order",
+        error: error.message,
+      });
+  }
+};
+
 export { createOrder, fetchOrders };

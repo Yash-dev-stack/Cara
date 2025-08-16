@@ -4,41 +4,39 @@ import { ShopContext } from "../context/ShopContext.jsx";
 import CartTotal from "../components/CartTotal.jsx";
 
 const Cart = () => {
-  const { products, navigate, currency, updateCart, cartItem } = useContext(ShopContext);
+  const { products, navigate, currency, updateCart, cartItem } =
+    useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
-    if(products.length > 0) {
-    let tempData = [];
-    for (const item in cartItem) {
-      for (const elem in cartItem[item]) {
-        if (cartItem[item][elem] > 0) {
-          tempData.push({
-            _id: item,
-            size: elem,
-            quantity: cartItem[item][elem],
-          });
+    if (products.length > 0) {
+      let tempData = [];
+      for (const item in cartItem) {
+        for (const elem in cartItem[item]) {
+          if (cartItem[item][elem] > 0) {
+            tempData.push({
+              _id: item,
+              size: elem,
+              quantity: cartItem[item][elem],
+            });
+          }
         }
       }
-    }
-    setCartData(tempData);
-      
+      setCartData(tempData);
     }
   }, [cartItem, products]);
-  
+
   const calculateTotalsubTotal = () => {
-    return  cartData.reduce((total,elem) => {
-      const productData = products.find((item) => item._id === elem._id)
-    if(productData) {
-      return total + productData.price * elem.quantity
-    } 
-    return total
-      },0)
-  }
-  
-  const totalSubtotal = calculateTotalsubTotal()
-  
-  
+    return cartData.reduce((total, elem) => {
+      const productData = products.find((item) => item._id === elem._id);
+      if (productData) {
+        return total + productData.price * elem.quantity;
+      }
+      return total;
+    }, 0);
+  };
+
+  const totalSubtotal = calculateTotalsubTotal();
 
   return (
     <div>
@@ -65,9 +63,11 @@ const Cart = () => {
 
             <div className="max-h-[45vh] overflow-auto">
               {cartData.map((elem, index) => {
-                const productData = products.find((product) => product._id === elem._id);
-                
-          const subTotal =  productData.price * elem.quantity
+                const productData = products.find(
+                  (product) => product._id === elem._id
+                );
+
+                const subTotal = productData.price * elem.quantity;
 
                 return (
                   <div
@@ -80,7 +80,6 @@ const Cart = () => {
                         className="w-5 cursor-pointer"
                         src={assets.bin_icon}
                         onClick={() => updateCart(elem._id, elem.size, 0)}
-                       
                       />
                     </div>
 
@@ -104,10 +103,19 @@ const Cart = () => {
 
                     {/* Quantity Input */}
                     <div className="flex justify-center">
-                      <input onChange={(e) => e.target.value===0 || e.target.value === '' ? null : updateCart(elem._id, elem.size, Number(e.target.value)) }
+                      <input
+                        onChange={(e) =>
+                          e.target.value === 0 || e.target.value === ""
+                            ? null
+                            : updateCart(
+                                elem._id,
+                                elem.size,
+                                Number(e.target.value)
+                              )
+                        }
                         className="w-12 border-2 rounded text-center p-1"
                         type="number"
-                        min='1'
+                        min="1"
                         defaultValue={elem.quantity}
                       />
                     </div>
@@ -119,18 +127,14 @@ const Cart = () => {
                     </p>
                   </div>
                 );
-                
               })}
-              
             </div>
-            
           </div>
         ) : (
           <div className="text-center my-12 text-3xl text-black font-medium">
             Your cart is Empty
           </div>
         )}
-        
       </div>
 
       {/* Apply Coupon & Cart Total */}
@@ -152,13 +156,15 @@ const Cart = () => {
 
         {/* Cart Total */}
         <CartTotal subtotal={totalSubtotal} shipping={20} />
-        
-           <button onClick={() => navigate('/place-order')}
-        className="bg-tertiary text-white font-medium px-8 py-3 rounded w-60 mt-5"
-        aria-label="Proceed to checkout with total"
-      >
-        Proceed to Checkout
-      </button>
+
+        <button
+          onClick={() => navigate("/place-order")}
+          disabled={cartData <= 0}
+          className="bg-tertiary disabled:bg-red-200 text-white font-medium px-8 py-3 rounded w-60 mt-5"
+          aria-label="Proceed to checkout with total"
+        >
+          Proceed to Checkout
+        </button>
       </div>
     </div>
   );
