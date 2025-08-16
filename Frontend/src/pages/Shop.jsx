@@ -9,6 +9,7 @@ const Shop = () => {
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
   const [sortType, setSortType] = useState("relevent");
+  const [showFilter, setShowFilter] = useState(false);
 
   const applyFilter = () => {
     let productCopy = products.slice();
@@ -72,7 +73,7 @@ const Shop = () => {
   return (
     <div>
       <div className="bg-shopHero bg-cover w-full h-[20vh] flex items-center  justify-center text-center flex-col p-[14px]">
-        <h1 className="text-[40px] font-extrabold leading-[54px] text-white ">
+        <h1 className="text-[27px] sm:text-[40px] font-extrabold leading-[54px] text-white ">
           #Shop Now
         </h1>
         <p className="text-white font-medium">
@@ -80,14 +81,20 @@ const Shop = () => {
         </p>
       </div>
 
-      <div className="w-full flex justify-between flex-row mt-10">
+      <div className="w-full flex justify-between flex-col sm:flex-row mt-10">
         {/*Right side*/}
-        <div className=" flex flex-col items-start mt-6 min-w-75 px-5 py-10  gap-6">
-          <h3 className="text-2xl font-semibold mb-3">Filters</h3>
+        <div className=" flex flex-col items-start  sm:mt-6 min-w-75 px-5 sm:py-10  gap-6">
+          <h3
+            className="sm:text-2xl text-3xl font-semibold mb-3"
+            onClick={() => setShowFilter(true)}
+          >
+            Filters
+          </h3>
 
           {/*Category*/}
-          <div className=" w-[99%] border border-gray-500 px-5  rounded  py-5  mb-5 text-start">
-            <h4 className="text-xl font-medium mb-2">Categories</h4>
+
+          <div className=" sm:w-[99%] border border-gray-500 px-5  rounded-md  py-5  sm:mb-5 text-start">
+            <h4 className="text-md sm:text-xl font-medium mb-2">Categories</h4>
             <div className="gap-1">
               <p className="flex gap-2 items-center">
                 <input
@@ -109,7 +116,7 @@ const Shop = () => {
           </div>
 
           {/*Sub Category*/}
-          <div className="w-[99%] border border-gray-500 rounded  py-5 px-5 text-start">
+          <div className="sm:w-[99%] border border-gray-500 rounded-md  py-5 px-5 text-start">
             <h4 className="text-xl font-medium mb-2">Type</h4>
             <div className="gap-1">
               <p className="flex gap-2 items-center">
@@ -133,12 +140,14 @@ const Shop = () => {
         </div>
         {/*Left side*/}
 
-        <div className="mt-6 w-full px-6 flex-1">
+        <div className="mt-6 w-full px-4 sm:px-6 flex-1">
           <div className="flex items-center justify-between flex-row">
-            <h1 className="text-5xl font-medium ">Our Collections </h1>
+            <h1 className="text-3xl sm:text-5xl font-medium ">
+              Our Collections{" "}
+            </h1>
             <select
               onChange={(e) => setSortType(e.target.value)}
-              className="border-2  py-2 text-sm text-gray-400 rounded"
+              className="border-2  py-1 sm:py-2 text-sm text-gray-400 rounded"
             >
               <option value="relevent">Short by: Relevent </option>
               <option value="low-high">Short by: Low to High </option>

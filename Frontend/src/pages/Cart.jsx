@@ -41,9 +41,9 @@ const Cart = () => {
   return (
     <div>
       {/* Banner */}
-      <div className="w-full h-[40vh] flex items-center flex-col justify-center text-center bg-cartBanner">
-        <h1 className="text-4xl font-medium text-white">#Cart</h1>
-        <p className="font-normal text-gray-200">
+      <div className="w-full h-[21vh] sm:h-[40vh] flex items-center flex-col justify-center text-center bg-cartBanner">
+        <h1 className="sm:text-4xl text-3xl font-medium text-white">#Cart</h1>
+        <p className="font-normal text-md text-gray-200">
           Add your coupon code and <span>SAVE</span> up to 70%
         </p>
       </div>
@@ -52,13 +52,13 @@ const Cart = () => {
       <div>
         {cartData.length > 0 ? (
           <div>
-            <div className="hidden sm:flex my-10 border-t-2 border-b-2 flex-row items-center justify-between px-12 py-3">
-              <h3 className="font-medium">Remove</h3>
-              <h3 className="font-medium">Image</h3>
-              <h3 className="font-medium">Product</h3>
-              <h3 className="font-medium">Price</h3>
-              <h3 className="font-medium">Quantity</h3>
-              <h3 className="font-medium">Subtotal</h3>
+            <div className="flex my-10 border-t-2 border-b-2 flex-row items-center justify-between px-3 sm:px-12 py-3">
+              <h3 className="font-normal sm:font-medium">Remove</h3>
+              <h3 className="font-normal sm:font-medium">Image</h3>
+              <h3 className="font-normal sm:font-medium">Product</h3>
+              <h3 className="font-normal sm:font-medium">Price</h3>
+              <h3 className="font-normal sm:font-medium">Quantity</h3>
+              <h3 className="font-normal sm:font-medium">Subtotal</h3>
             </div>
 
             <div className="max-h-[45vh] overflow-auto">
@@ -72,12 +72,12 @@ const Cart = () => {
                 return (
                   <div
                     key={index}
-                    className="grid grid-cols-1 sm:grid-cols-6 items-center border-t border-b py-4 gap-4 px-6 text-gray-700"
+                    className="grid grid-cols-6 items-center border-t border-b py-4 gap-2 sm:gap-4 px-3 sm:px-6 text-gray-700"
                   >
                     {/* Remove Button */}
                     <div className="flex justify-center">
                       <img
-                        className="w-5 cursor-pointer"
+                        className=" w-5 cursor-pointer"
                         src={assets.bin_icon}
                         onClick={() => updateCart(elem._id, elem.size, 0)}
                       />
@@ -86,14 +86,14 @@ const Cart = () => {
                     {/* Product Image */}
                     <div className="flex justify-center">
                       <img
-                        className="w-16 sm:w-20"
+                        className="w-14 sm:w-20"
                         src={productData.image[0]}
                         alt={productData.name}
                       />
                     </div>
 
                     {/* Product Name */}
-                    <p className="text-center">{productData.name}</p>
+                    <p className="text-[9px]text-center">{productData.name}</p>
 
                     {/* Product Price */}
                     <p className="text-center">
@@ -160,7 +160,7 @@ const Cart = () => {
         <button
           onClick={() => navigate("/place-order")}
           disabled={cartData <= 0}
-          className="bg-tertiary disabled:bg-red-200 text-white font-medium px-8 py-3 rounded w-60 mt-5"
+          className="bg-tertiary disabled:bg-red-200 text-white font-medium sm:px-8 py-3 rounded sm:w-60 mt-5"
           aria-label="Proceed to checkout with total"
         >
           Proceed to Checkout

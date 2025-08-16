@@ -9,7 +9,7 @@ const Navbar = () => {
   const {
     setShowSearch,
     getCartCount,
-    naviagte,
+    navigate,
     setTextShuffle,
     textShuffle,
     userId,
@@ -27,6 +27,14 @@ const Navbar = () => {
     } catch (error) {
       console.log(error);
       toast.error(error.message);
+    }
+  };
+
+  const onProfileClick = () => {
+    if (!localStorage.getItem("caraToken")) {
+      navigate("/login");
+    } else {
+      navigate("/");
     }
   };
 
@@ -84,7 +92,7 @@ const Navbar = () => {
           <img
             src={assets.profile_icon}
             className="w-5 cursor-pointer"
-            onClick={() => (window.location.href = "/login")}
+            onClick={() => onProfileClick()}
           />
           <div className="hover:block dropdown-menu group-hover:block absolute right-0 pt-4 hidden">
             <div className="flex flex-col w-36 px-3 py-5 gap-2 rounded bg-primary shadow-hoverShadow">

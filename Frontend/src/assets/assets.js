@@ -71,6 +71,7 @@ import feature5 from "./f5.jpg";
 import feature6 from "./f6.jpg";
 import feature7 from "./f7.jpg";
 import feature8 from "./f8.jpg";
+import { FaTwitter } from "react-icons/fa";
 
 export const assets = {
   bin_icon,
@@ -365,29 +366,6 @@ export const featureData = [
     id: "card6",
     text: "24/7 Supports",
     image: f6,
-  },
-];
-
-export const footerSocial = [
-  {
-    id: 1,
-    name: "",
-  },
-  {
-    id: 2,
-    name: "",
-  },
-  {
-    id: 3,
-    name: "",
-  },
-  {
-    id: 4,
-    name: "",
-  },
-  {
-    id: 5,
-    name: "",
   },
 ];
 
