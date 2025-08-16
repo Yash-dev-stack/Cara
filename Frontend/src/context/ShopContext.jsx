@@ -41,8 +41,10 @@ const ShopContextProvider = (props) => {
     setUser(userData ? userData : null);
   }, []);
 
-  const headingStyle = "text-[46px] font-bold leading-[54px] text-quaternary";
-  const paragraphStyle = "text-[16px] text-para mt-[15px] mb-[20px]";
+  const headingStyle =
+    "sm:text-[46px] text-[33px] font-bold leading-[54px] text-quaternary";
+  const paragraphStyle =
+    "sm:text-[16px] text-[12px] text-para mt-[12px] sm:mt-[15px] mb-[20px]";
 
   const addToCart = async (elemId, size) => {
     let cartData = structuredClone(cartItem);
