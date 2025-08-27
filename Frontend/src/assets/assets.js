@@ -41,15 +41,10 @@ import star_dull_icon from "./star_dull_icon.png";
 import b1 from "./b1.jpg";
 import b2 from "./b2.jpg";
 import b3 from "./b3.jpg";
-import b4 from "./b4.jpg";
 import b5 from "./b5.jpg";
 import b6 from "./b6.jpg";
-import b7 from "./b7.jpg";
-import b10 from "./b10.jpg";
 import b14 from "./b14.png";
 import b16 from "./b16.jpg";
-import b17 from "./b17.jpg";
-import b18 from "./b18.jpg";
 import b19 from "./b19.jpg";
 import b20 from "./b20.jpg";
 
@@ -71,7 +66,6 @@ import feature5 from "./f5.jpg";
 import feature6 from "./f6.jpg";
 import feature7 from "./f7.jpg";
 import feature8 from "./f8.jpg";
-import { FaTwitter } from "react-icons/fa";
 
 export const assets = {
   bin_icon,
