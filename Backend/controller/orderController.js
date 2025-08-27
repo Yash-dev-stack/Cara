@@ -4,7 +4,7 @@ import userModel from "../models/userModel.js";
 // Controller for handle a order
 const createOrder = async (request, response) => {
   const orderData = request.body;
-  console.log(orderData);
+  // console.log(orderData);
 
   const userId = orderData.userId;
   if (!userId) {
@@ -89,13 +89,11 @@ export const deleteOrder = async (req, res) => {
       .json({ success: true, message: "Order deleted successfully" });
   } catch (error) {
     console.error("Error deleting order:", error);
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "Failed to delete order",
-        error: error.message,
-      });
+    res.status(500).json({
+      success: false,
+      message: "Failed to delete order",
+      error: error.message,
+    });
   }
 };
 

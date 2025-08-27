@@ -30,7 +30,7 @@ const OrderDetails = () => {
       );
       if (response.data.success) {
         setOrder(response.data.orders);
-        console.log("Order data fetched successfully", response.data.orders);
+        // console.log("Order data fetched successfully", response.data.orders);
       }
     } catch (error) {
       console.log("Error in order Data in frontend", error);

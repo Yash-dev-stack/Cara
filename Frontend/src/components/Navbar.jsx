@@ -80,13 +80,6 @@ const Navbar = () => {
 
       {/* Icons */}
       <div className="flex flex-row gap-4 items-center">
-        {/* Search */}
-        <img
-          onClick={() => setShowSearch(true)}
-          src={assets.search_icon}
-          className="w-5 cursor-pointer"
-        />
-
         {/* Profile Dropdown */}
         <div className="relative group">
           <img
