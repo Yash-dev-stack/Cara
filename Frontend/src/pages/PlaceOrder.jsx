@@ -7,7 +7,7 @@ import { ShopContext } from "../context/ShopContext.jsx";
 import { toast } from "react-toastify";
 
 const PlaceOrder = () => {
-  const { user, clearCart } = useContext(ShopContext);
+  const { user, clearCart, backendUrl } = useContext(ShopContext);
   const [method, setMethod] = useState("cod");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -74,7 +74,7 @@ const PlaceOrder = () => {
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/order/create`,
+        `${backendUrl}/api/order/create`,
         orderData,
         {
           headers: {
