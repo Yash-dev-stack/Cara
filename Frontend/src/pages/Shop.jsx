@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import Products from "../components/Products.jsx";
 import { ShopContext } from "../context/ShopContext";
 import Newsletter from "../components/Newsletter.jsx";
+import { assets } from "../assets/assets.js";
 const Shop = () => {
   const { products, currency, headingStyle } = useContext(ShopContext);
 
@@ -72,7 +73,12 @@ const Shop = () => {
 
   return (
     <div>
-      <div className="bg-shopHero bg-cover w-full h-[20vh] flex items-center  justify-center text-center flex-col p-[14px]">
+      <div
+        className=" bg-cover w-full h-[20vh] flex items-center  justify-center text-center flex-col p-[14px]"
+        style={{
+          backgroundImage: `url(${assets.b1})`,
+        }}
+      >
         <h1 className="text-[27px] sm:text-[40px] font-extrabold leading-[54px] text-white ">
           #Shop Now
         </h1>

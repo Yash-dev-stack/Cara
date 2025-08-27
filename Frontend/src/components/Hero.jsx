@@ -25,10 +25,16 @@ const Hero = () => {
           </p>
 
           <Link to="/shop">
-            {" "}
-            <button className="bg-hero-button pt-[9px]  sm:pt-[14px] pr-[80px] pb-[14px] pl-[65px] bg-no-repeat border-0 bg-transparent text-tertiary cursor-pointer font-bold text-[15px]">
+            <button
+              className="pt-[9px] sm:pt-[14px] pr-[80px] pb-[14px] pl-[65px] border-0 text-tertiary cursor-pointer font-bold text-[15px]"
+              style={{
+                backgroundImage: `url(${assets.button})`, // ✅ wrap inside url()
+                backgroundRepeat: "no-repeat",
+                backgroundColor: "transparent",
+              }}
+            >
               Shop now
-            </button>{" "}
+            </button>
           </Link>
         </div>
       </div>

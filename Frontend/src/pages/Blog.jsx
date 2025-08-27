@@ -6,7 +6,12 @@ import Newsletter from "../components/Newsletter.jsx";
 const Blog = () => {
   return (
     <div>
-      <div className="bg-blogBanner w-full h-[20vh] sm:h-[40vh] text-center flex items-center flex-col justify-center   ">
+      <div
+        className=" w-full h-[20vh] sm:h-[40vh] text-center flex items-center flex-col justify-center   "
+        style={{
+          backgroundImage: `url(${assets.b19})`,
+        }}
+      >
         <h2 className="text-4xl text-white font-semibold mb-1">#Read More</h2>
         <p className="text-sm text-gray-200 font-normal">
           Read all the case studies about our products!

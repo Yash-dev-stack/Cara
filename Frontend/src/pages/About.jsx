@@ -4,7 +4,12 @@ import { assets } from "../assets/assets.js";
 const About = () => {
   return (
     <div className="text-center">
-      <div className="w-full h-[22vh] sm:h-[40vh] flex items-center flex-col justify-center text-center bg-cartBanner">
+      <div
+        className="w-full h-[22vh] sm:h-[40vh] flex items-center flex-col justify-center text-center "
+        style={{
+          backgroundImage: `url(${assets.banner})`,
+        }}
+      >
         <h1 className="text-4xl font-semibold text-white">#Know Us</h1>
         <p className="font-normal text-gray-200">
           id est ipsum labore ullamco laborum dolor
