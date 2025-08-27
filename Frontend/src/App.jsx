@@ -10,7 +10,6 @@ import Blog from "./pages/Blog.jsx";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import ProductDetail from "./pages/ProductDetail.jsx";
-import SearchBar from "./components/SearchBar.jsx";
 import PlaceOrder from "./pages/PlaceOrder.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
