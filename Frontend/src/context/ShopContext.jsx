@@ -8,7 +8,7 @@ export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
   const currency = "₹";
-  const backendUrl = "https://cara-backend-vbls.onrender.com";
+  const backendUrl = "https://cara-backend-qhh7.onrender.com";
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [cartItem, setCartItem] = useState({});
